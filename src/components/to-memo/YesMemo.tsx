@@ -2,13 +2,14 @@ import React from "react";
 
 type Props = {
   name?: string;
+  param?: any;
 };
-export const LocalState: React.FC<Props> = React.memo(({ children, name }) => {
+
+export const YesMemo: React.FC<Props> = React.memo(({ name, param }) => {
   const [counter, setCounter] = React.useState(0);
-  console.log("local state", name);
+  console.log("Yes memo", name, param);
   return (
     <div
-      className="LocalState"
       onClick={React.useCallback(
         (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           e.stopPropagation();
@@ -17,8 +18,7 @@ export const LocalState: React.FC<Props> = React.memo(({ children, name }) => {
         [counter]
       )}
     >
-      Some Local State {counter}
-      <div>{children}</div>
+      YesMemo {counter}
     </div>
   );
 });

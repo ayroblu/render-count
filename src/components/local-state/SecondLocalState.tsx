@@ -1,16 +1,29 @@
 import React from "react";
 
-export function SecondLocalState() {
+export const SecondLocalState = React.memo(() => {
   const [counter, setCounter] = React.useState(0);
-  console.log("second local state");
+  console.log("second local state", counter);
   return (
-    <div className="SecondLocalState">
-      My Second Local State{" "}
-      <div
-        onClick={React.useCallback(() => setCounter(counter + 1), [counter])}
-      >
-        {counter}
-      </div>
+    <div
+      className="SecondLocalState"
+      // onClick={React.useCallback(
+      //   (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      //     e.stopPropagation();
+      //     setCounter(counter + 1);
+      //   },
+      //   [counter]
+      // )}
+      onClick={(e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        e.stopPropagation();
+        setCounter(counter + 1);
+      }}
+    >
+      My Second Local State {counter}
+      <DummyComponent />
     </div>
   );
+});
+function DummyComponent() {
+  console.log("Dummy");
+  return <div>Dummy</div>;
 }

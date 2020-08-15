@@ -2,12 +2,11 @@ import React from "react";
 import { context } from "../SecondStore";
 import { actions } from "../../reducer";
 
-export const SecondContext = React.memo(() => {
+export const SecondBothContext = React.memo(() => {
   const { state, dispatch } = React.useContext(context);
-  console.log("Second Context");
+  console.log("Second Both Context");
   return (
     <div
-      className="SecondContext"
       onClick={React.useCallback(
         (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           e.stopPropagation();
@@ -20,3 +19,4 @@ export const SecondContext = React.memo(() => {
     </div>
   );
 });
+

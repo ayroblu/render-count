@@ -1,17 +1,14 @@
 import React from "react";
 import { context } from "../FirstStore";
 import { actions } from "../../reducer";
+import { SecondBothContext } from "./SecondBothContext";
 
-type Props = {
-  name?: string;
-};
-export const FirstContext: React.FC<Props> = React.memo(({ name }) => {
+export const FirstBothContext: React.FC = React.memo(() => {
   const [counter, setCounter] = React.useState(0);
   const { state, dispatch } = React.useContext(context);
-  console.log("first context", name);
+  console.log("first both context");
   return (
     <div
-      className="FirstContext"
       onClick={React.useCallback(
         (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
           e.stopPropagation();
@@ -20,7 +17,7 @@ export const FirstContext: React.FC<Props> = React.memo(({ name }) => {
         [dispatch, state.value1]
       )}
     >
-      First Context: {state.value1}
+      First Both Context: {state.value1}
       <div
         onClick={React.useCallback(
           (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
@@ -32,6 +29,7 @@ export const FirstContext: React.FC<Props> = React.memo(({ name }) => {
       >
         (counter: {counter})
       </div>
+      <SecondBothContext />
     </div>
   );
 });
