@@ -31,6 +31,8 @@ Use cases
 5. Does it rerender when local state is changed on another component
   - No
 
+Note that the store component takes a children prop, so you can memoise to stop the unnecessary state change that forces every child to update
+
 Notes
 -----
 Double rendering caused by "Strict Mode" component

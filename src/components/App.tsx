@@ -8,6 +8,7 @@ import { SecondLocalState } from "./local-state/SecondLocalState";
 import { ToMemo } from "./to-memo/ToMemo";
 import { FirstContextParent } from "./first-context/FirstContextParent";
 import { FirstBothContext } from "./both-context/FirstBothContext";
+import { ConnectedFirst } from "./first-context/ConnectedFirst";
 
 export function App() {
   console.log("Render App");
@@ -36,6 +37,7 @@ export function App() {
       <FirstStore>
         <FirstContext name="app level" />
         <FirstContextParent />
+        <ConnectedFirst />
       </FirstStore>
       <br />
       <MemoStore />
